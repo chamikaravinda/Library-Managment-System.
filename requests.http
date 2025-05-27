@@ -1,0 +1,60 @@
+### Login as Librarian
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "librarian",
+  "password": "password"
+}
+
+### Login as Borrower
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "borrower1",
+  "password": "password"
+}
+
+### Register a New Book (Librarian Only) - Replace {{token_librarian}} with actual token
+POST http://localhost:8080/api/librarian/books
+Content-Type: application/json
+Authorization: Bearer {{token_librarian}}
+
+{
+  "isbn": "9783161484100",
+  "title": "Clean Code",
+  "author": "Robert C. Martin"
+}
+
+### Get Available Books (Librarian Only)
+GET http://localhost:8080/api/librarian/books
+Authorization: Bearer {{token_librarian}}
+
+### Register a New Borrower (Librarian Only)
+POST http://localhost:8080/api/librarian/borrowers
+Content-Type: application/json
+Authorization: Bearer {{token_librarian}}
+
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+
+### Borrow a Book (Borrower Only) - Replace {{token_borrower}} with actual token
+POST http://localhost:8080/api/borrower/borrow/1/100
+Content-Type: application/json
+Authorization: Bearer {{token_borrower}}
+
+{
+  "bookId": 1
+}
+
+### Return a Book (Borrower Only)
+POST http://localhost:8080/api/borrower/return/1/100
+Content-Type: application/json
+Authorization: Bearer {{token_borrower}}
+
+{
+  "bookId": 1
+}
