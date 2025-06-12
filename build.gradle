@@ -26,6 +26,8 @@ dependencies {
 	implementation 'javax.xml.bind:jaxb-api:2.3.1'
 	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
 	implementation 'com.mysql:mysql-connector-j:8.0.33'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.5'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

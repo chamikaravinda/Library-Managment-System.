@@ -1,6 +1,8 @@
 package com.library.management.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,9 +15,13 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "ISBN cannot be null")
     @Column(unique = true)
-    private String isbn;
+    private Long isbn;
 
+    @NotEmpty
     private String title;
+
+    @NotEmpty
     private String author;
 }

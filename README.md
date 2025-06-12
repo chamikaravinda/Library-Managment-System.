@@ -19,6 +19,8 @@ cd library-management-api
 You can either export them in your shell or use a `.env` file with Docker.
 
 ```bash
+
+export ENVIRONMENT=dev
 export DB_URL=jdbc:mysql://localhost:3306/library_system
 export DB_USERNAME=root
 export DB_PASSWORD=admin

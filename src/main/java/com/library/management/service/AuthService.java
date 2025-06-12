@@ -3,6 +3,8 @@ package com.library.management.service;
 import com.library.management.dto.AuthRequest;
 import com.library.management.model.User;
 import com.library.management.repository.UserRepository;
+import com.library.management.security.JwtService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,6 +17,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
 
+    @Autowired
     public AuthService(UserRepository userRepository,
                        AuthenticationManager authenticationManager,
                        JwtService jwtService) {

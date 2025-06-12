@@ -16,14 +16,18 @@ import java.util.NoSuchElementException;
 @Service
 public class BorrowerService {
 
-    @Autowired
-    private BookCopyRepository bookCopyRepository;
+    private final BookCopyRepository bookCopyRepository;
 
-    @Autowired
-    private BorrowerRepository borrowerRepository;
+    private final BorrowerRepository borrowerRepository;
 
-    @Autowired
-    private BorrowRecordRepository borrowRecordRepository;
+    private final BorrowRecordRepository borrowRecordRepository;
+
+    public BorrowerService(BookCopyRepository bookCopyRepository, BorrowerRepository borrowerRepository,
+                           BorrowRecordRepository borrowRecordRepository) {
+        this.bookCopyRepository = bookCopyRepository;
+        this.borrowerRepository = borrowerRepository;
+        this.borrowRecordRepository = borrowRecordRepository;
+    }
 
     public BorrowRecord borrowBook(Long bookId, Long borrowerId) {
 

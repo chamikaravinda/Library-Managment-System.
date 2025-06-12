@@ -1,4 +1,4 @@
-package com.library.management.service;
+package com.library.management.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

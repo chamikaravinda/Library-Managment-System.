@@ -2,6 +2,7 @@ package com.library.management.config;
 
 import com.library.management.security.JwtAuthenticationFilter;
 import com.library.management.service.UserService;
+import com.library.management.util.Roles;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -36,8 +37,10 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/librarian/**").hasRole("LIBRARIAN")
-                        .requestMatchers("/api/borrower/**").hasRole("BORROWER")
+                        .requestMatchers("/api-docs/**").permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers("/api/librarian/**").hasRole(Roles.LIBRARIAN.toString())
+                        .requestMatchers("/api/borrower/**").hasRole(Roles.BORROWER.toString())
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
